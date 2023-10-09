@@ -1,5 +1,11 @@
 import java.util.Scanner;
 
+
+/**
+ * Programa que invoca otro programa java compilado y guardado en ./bin
+ * @author Dante Sarotti
+ * @version 0.1
+ */
 public class Programa2 {
     public static void main(String[] args) throws Exception {
         
@@ -29,6 +35,7 @@ public class Programa2 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        sc.close();
         System.out.println("\nSaliendo del programa.");
     }
 }
