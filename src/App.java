@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 /**
- * Programa que invoca otro programa java compilado y guardado en ./bin
+ * Este Programa ejecuta otro programa java siempre y cuando este último conste de un solo archivo.
  * @author Dante Sarotti
  * @version 0.1
  */
@@ -13,6 +13,7 @@ public class App {
         System.out.println("Indica el argumento que pasarle al programa: ");
         String argumento = sc.nextLine();
         try {
+
             // Crea un objeto ProcessBuilder
             ProcessBuilder builder = new ProcessBuilder("java", "ProgramaUno.java",argumento);
 
