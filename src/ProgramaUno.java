@@ -19,11 +19,10 @@ public class ProgramaUno {
         
         for (String string : args) {
             if (string.isEmpty()){
-                
+
                 //No hay argumentos
                 System.exit(1);
             }else if (comprobarSiEsInt(string)){
-
                 if (Integer.parseInt(string)>=0){
 
                     //Es un entero positivo
@@ -33,9 +32,7 @@ public class ProgramaUno {
                     //Es un entero negativo
                     System.exit(3);
                 }
-            
             }
-        
             //No es un entero
             System.exit(2);
         }
