@@ -17,24 +17,28 @@ public class ProgramaUno {
      */
     public static void main(String[] args) throws Exception {
         
-        for (String string : args) {
-            if (string.isEmpty()){
+        if(args.length==0){
+            System.exit(1);
+        }else{
+            for (String string : args) {
+                if (string.isEmpty()){
 
-                //No hay argumentos
-                System.exit(1);
-            }else if (comprobarSiEsInt(string)){
-                if (Integer.parseInt(string)>=0){
+                    //No hay argumentos
+                    System.exit(1);
+                }else if (comprobarSiEsInt(string)){
+                    if (Integer.parseInt(string)>=0){
 
-                    //Es un entero positivo
-                    System.exit(0); 
-                }else {  
-                
-                    //Es un entero negativo
-                    System.exit(3);
+                        //Es un entero positivo
+                        System.exit(0); 
+                    }else {  
+                    
+                        //Es un entero negativo
+                        System.exit(3);
+                    }
                 }
+                //No es un entero
+                System.exit(2);
             }
-            //No es un entero
-            System.exit(2);
         }
     }
 

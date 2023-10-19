@@ -9,32 +9,21 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
     
+        //Obtener por teclado los argumentos con los que ejecutar el programa
         Scanner sc = new Scanner(System.in);
         System.out.println("Indica el argumento que pasarle al programa: ");
         String argumento = sc.nextLine();
-        try {
 
-            // Crea un objeto ProcessBuilder
-            ProcessBuilder builder = new ProcessBuilder("java", "ProgramaUno.java",argumento);
+        //Obtener el runtime
+        Runtime r = Runtime.getRuntime();
+        
+        //Crear el proceso
+        Process p = r.exec("java ProgramaUno.java "+ argumento);
 
-            //Redireccionar las entradas y salidas del proceso hijo a las mismas del proceso actual.
-            builder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            builder.redirectInput(ProcessBuilder.Redirect.INHERIT);
-            builder.redirectErrorStream(true);
+        //Ejecutar el proceso y esperar a que finalice
+        int retornoProceso = p.waitFor();
+        System.out.println("Con Runtime la ejecución devuelve el valor de retorno " + retornoProceso);
 
-            // Inicia el proceso
-            Process proceso = builder.start();
-
-            // Espera a que el proceso termine
-            int retornoProceso = proceso.waitFor();
-
-            // Mostrar el valor de retorno del proceso
-            System.out.println("\nEl proceso ha terminado con código de retorno: "+ retornoProceso );
-
-        } catch (Exception e) {
-            System.out.println("Ha ocurrido un error con la ejecución del programa.");
-            e.printStackTrace();
-        }
         sc.close();
         System.out.println("\nSaliendo del programa.");
     }
